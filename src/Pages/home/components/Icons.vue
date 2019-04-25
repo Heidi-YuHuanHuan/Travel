@@ -3,7 +3,9 @@
     <swiper>
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
-          <img class="icon-imgs" :src= "item.imgURL">
+          <div class="icon-imgs">
+            <img class="icon-img-content" :src= "item.imgURL">
+          </div>
           <p class="icon-texts">{{item.desc}}</p>
         </div>
       </swiper-slide>
@@ -55,13 +57,7 @@ export default{
           id: '08',
           imgURL: '../../../../static/images/全部.png',
           desc: '全部'
-        },
-        {
-          id: '09',
-          imgURL: '../../../../static/images/景点门票.png',
-          desc: '景点门票'
-        }
-      ]
+        }]
     }
   },
   computed: {
@@ -86,20 +82,32 @@ export default{
   height: 0;
   padding-bottom: 50%;
 .icon
+  position:relative;
   width:25%;
   float: left;
   overflow: hidden;
-  padding-bottom: 10%;
+  padding-bottom: 25%;
+  height: 0;
   .icon-imgs
-    width: .7rem;
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
     box-sizing: border-box;
-    margin: 0 auto;
-    height: 100%;
-    padding-top: .2rem
+    padding: .1rem;
+    .icon-img-content
+      display: block;
+      margin: 0 auto;
+      height: 100%;
   .icon-texts
     color:$darkTextColor;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: .44rem;
+    height: .44rem;
+    line-height: .44rem;
     text-align: center;
-    padding-top: .1rem;
-    ellipsis()
+    ellipsis();
 </style>
