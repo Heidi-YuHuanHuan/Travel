@@ -24,7 +24,7 @@ export default {
   .back-icon
     width:.64rem;
     text-align: center;
-    font-size: .5rem;
+    font-size: .4rem;
     position: absolute;
     top: 0;
     color: #fff;
