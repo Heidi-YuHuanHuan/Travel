@@ -18,28 +18,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '01',
-          imgURL: '//imgs.qunarzz.com/sight/p0/1602/67/67feeab24cfc82bb90.water.jpg_256x144_22f0e440.jpg',
-          title: '[北京]太平洋海底世界学生门票',
-          desc: '漫步海底，欣赏五彩缤纷的海底生物'
-        },
-        {
-          id: '02',
-          imgURL: '//imgs.qunarzz.com/p/tts1/1809/6a/ac23991ddfed9c02.jpg_256x144_a2f43ab2.jpg',
-          title: '江苏出发一日游',
-          desc: '[北京]【五一预售】八达岭长城+颐和园+北大外观+鸟巢水立方一日游'
-        },
-        {
-          id: '03',
-          imgURL: 'https://imgs.qunarzz.com/sight/p0/1603/85/85aa0c000578a01e90.water.jpg_256x160_649a8b35.jpg',
-          title: '拙政园',
-          desc: '庭院错落，花木为胜，天下园林之典范'
-        }]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>

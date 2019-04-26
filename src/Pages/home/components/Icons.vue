@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-imgs">
@@ -15,49 +15,14 @@
 <script>
 export default{
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
-      iconList: [
-        {
-          id: '01',
-          imgURL: '../../../../static/images/景点门票.png',
-          desc: '景点门票'
-        },
-        {
-          id: '02',
-          imgURL: '../../../../static/images/滑雪.png',
-          desc: '滑雪'
-        },
-        {
-          id: '03',
-          imgURL: '../../../../static/images/温泉.png',
-          desc: '泡温泉'
-        },
-        {
-          id: '04',
-          imgURL: '../../../../static//images/动植物园.png',
-          desc: '动植物园'
-        },
-        {
-          id: '05',
-          imgURL: '../../../../static/images/一日游.png',
-          desc: '一日游'
-        },
-        {
-          id: '06',
-          imgURL: '../../../../static/images/榜单.png',
-          desc: '必游榜单'
-        },
-        {
-          id: '07',
-          imgURL: '../../../../static/images/自然风光.png',
-          desc: '自然风光'
-        },
-        {
-          id: '08',
-          imgURL: '../../../../static/images/全部.png',
-          desc: '全部'
-        }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {

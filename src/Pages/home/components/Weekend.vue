@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="recommend-title">周末去哪儿</div>
+    <div class="weekend-title">周末去哪儿</div>
     <ul>
-      <li class="item" v-for="item of recommendList" :key="item.id">
+      <li class="item" v-for="item of weekendList" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgURL">
         </div>
@@ -17,29 +17,15 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '01',
-          imgURL: 'http://img2.imgtn.bdimg.com/it/u=2313766368,1230529460&fm=26&gp=0.jpgg',
-          title: '[北京]太平洋海底世界学生门票',
-          desc: '漫步海底，欣赏五彩缤纷的海底生物'
-        },
-        {
-          id: '02',
-          imgURL: 'http://img2.imgtn.bdimg.com/it/u=2313766368,1230529460&fm=26&gp=0.jpg',
-          title: '江苏出发一日游',
-          desc: '[北京]【五一预售】八达岭长城+颐和园+北大外观+鸟巢水立方一日游'
-        }]
-    }
+  props: {
+    weekendList: Array
   }
 }
 </script>
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
 @import '~styles/variables.styl'
-.recommend-title
+.weekend-title
   line-height:.8rem;
   background:#eee;
   margin-top: .2rem;
