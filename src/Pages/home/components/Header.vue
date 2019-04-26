@@ -6,11 +6,13 @@
     <div class="header-input">
       <span class="iconfont ">&#xe645;</span>
       输入城市/景点/游玩主题</div>
-    <div class="header-right">
-      {{this.city}}
-      <div class="dropdown-icon">
+    <router-link to="/city">
+      <div class="header-right">
+        {{this.city}}
+        <div class="dropdown-icon">
+        </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 <script>
@@ -25,10 +27,10 @@ export default {
 @import '~styles/variables.styl'
 .header
   display:flex;
-  height:.86rem;
+  height:$headerheight;
   background:$bgColor;
   color:#fff;
-  line-height:.86rem;
+  line-height:$headerheight;
   .header-left
     width:.64rem;
     float:left;
@@ -48,6 +50,7 @@ export default {
   .header-right
     width:1.24rem;
     float:right;
+    color: #fff;
     .dropdown-icon
       width:0
       height:0
