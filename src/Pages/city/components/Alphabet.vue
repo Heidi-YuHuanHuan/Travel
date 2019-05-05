@@ -6,9 +6,9 @@
           :key="item"
           :ref="item"
           @click="handleLetterClick"
-          @touchstart="handletTouchStart"
-          @touchmove="handletTouchMove"
-          @touchend="handletTouchEnd"
+          @touchstart="handleTouchStart"
+          @touchmove="handleTouchMove"
+          @touchend="handleTouchEnd"
       >
         {{item}}
       </li>
@@ -32,29 +32,38 @@ export default{
   },
   data () {
     return {
-      touchstatus: false
+      touchstatus: false,
+      startY: 0,
+      timer: null
     }
+  },
+  // offsetTop指的是'A'字母距离城市选择最下沿的距离
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop
   },
   methods: {
     handleLetterClick (e) {
       this.$emit('change', e.target.innerText)
     },
-    handletTouchStart () {
+    handleTouchStart () {
       this.touchstatus = true
     },
-    handletTouchMove (e) {
+    handleTouchMove (e) {
       if (this.touchstatus) {
-        // offsetTop指的是'A'字母距离城市选择最下沿的距离
-        const startY = this.$refs['A'][0].offsetTop
-        const touchY = e.touches[0].clientY - 89
-        const index = Math.floor((touchY - startY) / 20)
-        console.log(index)
-        if (index >= 0 && index < this.letters.length) {
-          this.$emit('change', this.letters[index])
+        if (this.timer) {
+          clearTimeout(this.timer)
         }
+        this.timer = setTimeout(() => {
+          const touchY = e.touches[0].clientY - 89
+          const index = Math.floor((touchY - this.startY) / 20)
+          console.log(index)
+          if (index >= 0 && index < this.letters.length) {
+            this.$emit('change', this.letters[index])
+          }
+        }, 16)
       }
     },
-    handletTouchEnd () {
+    handleTouchEnd () {
       this.touchstatus = false
     }
   }
