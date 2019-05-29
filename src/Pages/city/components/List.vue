@@ -76,7 +76,7 @@ export default{
     border-top: .01rem solid #ddd;
   .button-list
     overflow: hidden;
-    padding: .1rem 3rem .1rem .1rem;
+    padding: .1rem 4rem .1rem .1rem;
   .button-wrapper
     float:left;
     width: 33.33%;
