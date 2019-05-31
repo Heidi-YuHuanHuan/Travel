@@ -6,7 +6,14 @@
      <!-- v-show="keyword"   根据keyword判断是否显示 -->
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li v-for="item of list" :key="item.id" class="search-item border-bottom">{{item.name}}</li>
+        <li 
+          v-for="item of list" 
+          :key="item.id" 
+          class="search-item border-bottom"
+          @click="handleCityClick(item.name)"
+        >
+          {{item.name}}
+        </li>
         <!-- v-show="hasNoData"    根据数组的长度判断是否显示 -->
         <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
       </ul>
@@ -30,6 +37,12 @@ export default{
   computed: {
     hasNoData () {
       return !this.list.length;
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      this.$store.commit('changecity',city)
+      this.$router.push('/')
     }
   },
   watch: {

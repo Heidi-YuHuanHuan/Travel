@@ -2,7 +2,13 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item" v-for="item of recommendList" :key="item.id">
+      <router-link class="item" 
+        v-for="item of recommendList" 
+        :key="item.id"
+        tag="li"
+        :to="'/detail/'+item.id"   
+      >
+       <!--  根据item的id值进入相应的详情页——动态路由 -->
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgURL">
         </div>
@@ -11,7 +17,7 @@
           <p class="info-desc">{{item.desc}}</p>
           <button class="item-btn">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

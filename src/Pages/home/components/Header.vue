@@ -8,7 +8,9 @@
       输入城市/景点/游玩主题</div>
     <router-link to="/city">
       <div class="header-right">
-        {{this.city}}
+        <div class="cityName">
+          {{this.$store.state.city}}
+        </div>
         <div class="dropdown-icon">
         </div>
       </div>
@@ -18,9 +20,6 @@
 <script>
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
-  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -51,6 +50,12 @@ export default {
     width:1.24rem;
     float:right;
     color: #fff;
+    .cityName{
+      width: 70%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow:ellipsis;
+    }
     .dropdown-icon
       width:0
       height:0
@@ -59,5 +64,5 @@ export default {
       border-right: .15rem solid transparent;
       position: relative;
       bottom: .5rem;
-      left: .7rem;
+      left: .86rem;
 </style>
